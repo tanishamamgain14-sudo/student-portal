@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h2>Student Login</h2>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="login()">Open Door</button>
+        <p>New here? <a href="register.html">Create an account</a></p>
+    </div>
+
+    <script>
+        function login() {
+            // Check the "Secret Pocket" for the correct info
+            let rightUser = localStorage.getItem('savedUser');
+            let rightPass = localStorage.getItem('savedPass');
+
+            let typedUser = document.getElementById('user').value;
+            let typedPass = document.getElementById('pass').value;
+
+            if(typedUser === rightUser && typedPass === rightPass) {
+                window.location.href = "dashboard.html"; 
+            } else {
+                alert("Oops! That's not the right password.");
+            }
+        }
+    </script>
+</body>
+</html>

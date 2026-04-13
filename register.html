@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Student Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box">
+        <h2>Join the Portal</h2>
+        <input type="text" id="newName" placeholder="Pick a Username">
+        <input type="password" id="newPass" placeholder="Pick a Password">
+        <button onclick="signup()">Sign Up!</button>
+        <p>Already joined? <a href="index.html">Login here</a></p>
+    </div>
+
+    <script>
+        function signup() {
+            let name = document.getElementById('newName').value;
+            let pass = document.getElementById('newPass').value;
+
+            if(name === "" || pass === "") {
+                alert("Please don't leave the boxes empty!");
+                return;
+            }
+
+            // This puts the name and password in the "Secret Pocket"
+            localStorage.setItem('savedUser', name);
+            localStorage.setItem('savedPass', pass);
+            
+            alert("Success! Now you can login with that password.");
+            window.location.href = "index.html"; 
+        }
+    </script>
+</body>
+</html>
